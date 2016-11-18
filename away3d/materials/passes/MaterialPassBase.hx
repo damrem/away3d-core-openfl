@@ -14,6 +14,7 @@ import away3d.errors.AbstractMethodError;
 import away3d.materials.MaterialBase;
 import away3d.materials.lightpickers.LightPickerBase;
 import away3d.textures.Anisotropy;
+import openfl.Vector;
 
 import openfl.display.BlendMode;
 import openfl.display3D.Context3D;
@@ -70,8 +71,8 @@ class MaterialPassBase extends EventDispatcher {
 	private var _enableBlending:Bool;
 	private var _bothSides:Bool;
 	private var _lightPicker:LightPickerBase;
-	private var _animatableAttributes:Array<String>;
-	private var _animationTargetRegisters:Array<String>;
+	private var _animatableAttributes:Vector<String>;
+	private var _animationTargetRegisters:Vector<String>;
 	private var _shadedTarget:String;
 	
 	// keep track of previously rendered usage for faster cleanup of old vertex buffer streams and textures
@@ -115,8 +116,8 @@ class MaterialPassBase extends EventDispatcher {
 		_blendFactorSource = Context3DBlendFactor.ONE;
 		_blendFactorDest = Context3DBlendFactor.ZERO;
 
-		_animatableAttributes = [ "va0" ];
-		_animationTargetRegisters = [ "vt0" ];
+		_animatableAttributes = Vector.ofArray([ "va0" ]);
+		_animationTargetRegisters = Vector.ofArray([ "vt0" ]);
 		_shadedTarget = "ft0";
 		
 		_defaultCulling = Context3DTriangleFace.BACK;
@@ -528,6 +529,7 @@ class MaterialPassBase extends EventDispatcher {
 			_animationSet.doneAGALCode(this);
 		} else {
 			var len:UInt = _animatableAttributes.length;
+			//var len:UInt = _animatableAttributes==null?0:_animatableAttributes.length;
 			
 			// simply write attributes to targets, do not animate them
 			// projection will pick up on targets[0] to do the projection

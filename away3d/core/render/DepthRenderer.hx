@@ -15,6 +15,7 @@ import openfl.display3D.Context3DBlendFactor;
 import openfl.display3D.Context3DCompareMode;
 import openfl.display3D.textures.TextureBase;
 import openfl.geom.Rectangle;
+import openfl.Vector;
 
 class DepthRenderer extends RendererBase {
     public var disableColor(get, set):Bool;
@@ -82,7 +83,7 @@ class DepthRenderer extends RendererBase {
         _stage3DProxy.scissorRect = null;
     }
 
-    private function drawCascadeRenderables(item:RenderableListItem, camera:Camera3D, cullPlanes:Array<Plane3D>):Void {
+    private function drawCascadeRenderables(item:RenderableListItem, camera:Camera3D, cullPlanes:Vector<Plane3D>):Void {
         var material:MaterialBase;
         while (item != null) {
             if (item.cascaded) {
