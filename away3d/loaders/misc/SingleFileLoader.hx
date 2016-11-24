@@ -6,6 +6,7 @@ import away3d.events.ParserEvent;
 import away3d.loaders.parsers.ImageParser;
 import away3d.loaders.parsers.ParserBase;
 import away3d.loaders.parsers.ParserDataFormat;
+import openfl.Vector.Vector;
 
 import openfl.events.Event;
 import openfl.events.EventDispatcher;
@@ -76,7 +77,7 @@ class SingleFileLoader extends EventDispatcher
 			_parsers.push(parser);
 	}
 	
-	public static function enableParsers(parsers:Array<Dynamic>):Void
+	public static function enableParsers(parsers:Vector<Dynamic>):Void
 	{
 		var pc;
 		for (pc in parsers)
