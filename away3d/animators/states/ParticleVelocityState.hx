@@ -6,6 +6,7 @@ package away3d.animators.states;
 import haxe.ds.ObjectMap;
 import away3d.animators.data.ParticlePropertiesMode;
 import openfl.display3D.Context3DVertexBufferFormat;
+import openfl.Vector.Vector;
 
 import away3d.cameras.Camera3D;
 import away3d.animators.data.AnimationRegisterCache;
@@ -37,11 +38,11 @@ class ParticleVelocityState extends ParticleStateBase {
     /**
 	 *
 	 */
-    public function getVelocities():Array<Vector3D> {
+    public function getVelocities():Vector<Vector3D> {
         return _dynamicProperties;
     }
 
-    public function setVelocities(value:Array<Vector3D>):Void {
+    public function setVelocities(value:Vector<Vector3D>):Void {
         _dynamicProperties = value;
         _dynamicPropertiesDirty = new ObjectMap<AnimationSubGeometry, Bool>();
     }

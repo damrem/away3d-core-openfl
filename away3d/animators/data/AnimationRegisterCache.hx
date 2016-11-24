@@ -41,8 +41,8 @@ class AnimationRegisterCache extends ShaderRegisterCache {
     public var rotationRegisters:Array<ShaderRegisterElement>;
     public var needFragmentAnimation:Bool;
     public var needUVAnimation:Bool;
-    public var sourceRegisters:Array<String>;
-    public var targetRegisters:Array<String>;
+    public var sourceRegisters:Vector<String>;
+    public var targetRegisters:Vector<String>;
     private var indexDictionary:ObjectMap<AnimationNodeBase, Array<Int>>;
 
     //set true if has an node which will change UV
